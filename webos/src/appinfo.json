@@ -13,7 +13,7 @@
     "supportsAudioGuidance": false
   },
   "vendorExtension": {
-    "userAgent": "Mozilla/5.0 (SMART-TV; LINUX; Tizen 7.0) AppleWebKit/537.36 (KHTML, like Gecko) FC4A1DA2-711C-4E9C-BC7F-047AF8A672EA",
+    "userAgent": "Mozilla/5.0 (Linux; NetCast; U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.3945.79 Safari/537.36 SmartTV/10.0 Colt/2.0",
     "allowCrossDomain": true
   },
   "enablePigScreenSaver": false,

@@ -7,7 +7,7 @@ import subprocess
 
 import requests
 
-USERSCRIPT_URL = 'https://github.com/redphx/better-xcloud/raw/refs/heads/typescript/dist/better-xcloud.lite.user.js'
+USERSCRIPT_URL = 'https://raw.githubusercontent.com/redphx/better-xcloud/typescript/dist/better-xcloud.lite.user.js'
 # USERSCRIPT_URL = 'https://github.com/redphx/better-xcloud/raw/main/better-xcloud.user.js'
 
 # Read additional code
@@ -27,9 +27,22 @@ except Exception:
 content = content.replace('/* ADDITIONAL CODE */', addintional_code)
 
 # Get script's version
-version_pattern = re.compile(r'SCRIPT_VERSION = "([^"]+)"')
-match = version_pattern.search(content)
-script_version = match.group(1)
+version_patterns = [
+    re.compile(r'@version\\s+([^\\s]+)'),
+    re.compile(r'SCRIPT_VERSION = "([^"]+)"'),
+]
+script_version = None
+for version_pattern in version_patterns:
+    match = version_pattern.search(content)
+    if match:
+        script_version = match.group(1)
+        break
+
+if not script_version:
+    raise ValueError(
+        f'Unable to determine userscript version from {USERSCRIPT_URL}. '
+        'Update build.py to parse the new format.'
+    )
 
 # Remove "-beta" from version
 script_version = script_version.replace('-beta', '')
