@@ -1,1 +1,1 @@
-window.location = 'https://www.xbox.com/en-US/play';
+window.location = 'https://www.xbox.com/en-US/play/login/deviceCode';
