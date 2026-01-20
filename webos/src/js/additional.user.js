@@ -3,6 +3,16 @@ if (window.location.pathname.startsWith('/oauth20_authorize.srf')) {
     throw new Error('[Better xCloud] Ignore');
 }
 
+if (window.location.pathname.startsWith('/play/login') && !window.location.pathname.includes('deviceCode')) {
+    window.location = 'https://www.xbox.com/en-US/play/login/deviceCode';
+    throw new Error('[Better xCloud] Ignore');
+}
+
+if (window.location.pathname.startsWith('/login') && !window.location.pathname.includes('deviceCode')) {
+    window.location = 'https://www.xbox.com/en-US/play/login/deviceCode';
+    throw new Error('[Better xCloud] Ignore');
+}
+
 if (!window.location.pathname.includes('/play')) {
     throw new Error('[Better xCloud] Ignore');
 }
