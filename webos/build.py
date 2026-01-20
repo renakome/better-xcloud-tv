@@ -7,8 +7,7 @@ import subprocess
 
 import requests
 
-USERSCRIPT_URL = 'https://raw.githubusercontent.com/redphx/better-xcloud/typescript/dist/better-xcloud.lite.user.js'
-# USERSCRIPT_URL = 'https://github.com/redphx/better-xcloud/raw/main/better-xcloud.user.js'
+USERSCRIPT_URL = 'https://raw.githubusercontent.com/redphx/better-xcloud/refs/heads/typescript/dist/better-xcloud.user.js'
 
 # Read additional code
 with open('src/js/additional.user.js', 'r') as file:
